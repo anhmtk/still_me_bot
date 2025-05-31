@@ -3,7 +3,7 @@ import os
 import openai
 import telegram
 from telegram.ext import ApplicationBuilder, MessageHandler, filters, ContextTypes
-from telegram import update
+from telegram import Update
 import os
 import openai
 from telegram import Update
