@@ -67,7 +67,7 @@ if __name__ == "__main__":
     app = ApplicationBuilder().token(TELEGRAM_TOKEN).build()
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
     app.run_polling()
-rt Update
+from telegram import Update
 from dotenv import load_dotenv
 
 # Tải biến môi trường từ file .env
