@@ -35,7 +35,8 @@ def handle_message(update: Update, context: CallbackContext):
 
 # Chạy bot
 def main():
-    updater = Updater(token=TELEGRAM_TOKEN, use_context=True)
+    updater = Updater(token=TELEGRAM_TOKEN, use_context=True, allowed_updates=["message"])
+
     dispatcher = updater.dispatcher
 
     dispatcher.add_handler(MessageHandler(Filters.text & ~Filters.command, handle_message))
