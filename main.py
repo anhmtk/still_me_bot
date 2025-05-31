@@ -2,7 +2,7 @@
 import os
 import openai
 import telegram
-from telegram.ext import Updater, MessageHandler, Filters, CallbackContext
+from telegram.ext import ApplicationBuilder, MessageHandler, filters, ContextTypes
 from telegram import update
 import os
 import openai
