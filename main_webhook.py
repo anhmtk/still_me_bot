@@ -48,8 +48,7 @@ asyncio.run(start())
 import uvicorn
 
 if __name__ == "__main__":
-    import os
+    port = int(os.environ.get("PORT", 10000))
+    uvicorn.run(webhook_app, host="0.0.0.0", port=port)
 
-port = int(os.environ.get("PORT", 10000))  # fallback nếu chạy local
-uvicorn.run("main_webhook:app", host="0.0.0.0", port=port)
 
