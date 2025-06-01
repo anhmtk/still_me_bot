@@ -43,11 +43,9 @@ async def start():
     await app.bot.set_webhook("https://still-me-bot.onrender.com/webhook")
     print("Bot đã khởi động bằng Webhook.")
 
-import os
-import asyncio
-import uvicorn
-
-asyncio.run(start())
+@webhook_app.on_event("startup")
+async def on_startup():
+    await start()
 
 
 
