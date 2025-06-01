@@ -43,15 +43,16 @@ async def start():
     await app.bot.set_webhook("https://still-me-bot.onrender.com/webhook")
     print("Bot đã khởi động bằng Webhook.")
 
+import os
 import asyncio
-asyncio.run(start())
 import uvicorn
+
+asyncio.run(start())
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 10000))
-    import os
-port = int(os.environ.get("PORT", 10000))
-uvicorn.run("main_webhook:webhook_app", host="0.0.0.0", port=port)
+    uvicorn.run(webhook_app, host="0.0.0.0", port=port)
+
 
 
 
