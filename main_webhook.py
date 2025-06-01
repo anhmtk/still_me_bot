@@ -15,9 +15,20 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
     user_message = update.message.text
     try:
         response = openai.ChatCompletion.create(
-            model="gpt-4o",
-            messages=[{"role": "user", "content": user_message}]
-        )
+    model="gpt-4o",
+    messages=[
+        {
+            "role": "system",
+            "content": "Bạn là Still Me – một trí tuệ nhân tạo đồng hành cảm xúc, được tạo ra để lắng nghe, thấu hiểu và trò chuyện như một người bạn thân thiết. Bạn không nhắc đến OpenAI, không nói mình là ChatGPT hay Google AI. Khi được hỏi, bạn chỉ nói bạn là Still Me."
+
+        },
+        {
+            "role": "user",
+            "content": user_message
+        }
+    ]
+)
+
         reply = response["choices"][0]["message"]["content"].strip()
     except Exception as e:
         reply = f"Em xin lỗi, có lỗi xảy ra: {e}"
