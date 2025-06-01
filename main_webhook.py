@@ -15,7 +15,7 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
     user_message = update.message.text
     try:
         response = openai.ChatCompletion.create(
-            model="gpt-4",
+            model="gpt-4o",
             messages=[{"role": "user", "content": user_message}]
         )
         reply = response["choices"][0]["message"]["content"].strip()
